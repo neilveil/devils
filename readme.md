@@ -1,11 +1,11 @@
-# Feutils 🛠️
+# Devils 🛠️
 
 **A collection of useful front-end web development utility functions.**
 
 ## Usage Example 🚀
 
 ```js
-import { delay } from 'feutils'
+import { delay } from 'devils'
 
 ..
 
