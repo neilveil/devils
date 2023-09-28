@@ -14,23 +14,25 @@ await delay(2)
 
 ## Content 📦
 
-- [Storage Manager](#storage-manager)
-- [Theme Manager](#theme-manager)
-- [Query String Manager](#query-string-manager)
-- [Scroll Back](#scroll-back)
-- [Delay](#delay)
-- [Add Plural Suffix](#add-plural-suffix)
-- [Get Ordinal Suffix](#get-ordinal-suffix)
-- [Select Random in Array](#select-random-in-array)
-- [Copy to Clipboard](#copy-to-clipboard)
-- [Sort Array of Objects](#sort-array-of-objects)
-- [Arrange an Array](#arrange-an-array)
-- [Remove Duplicates](#remove-duplicates)
-- [Format Numbers with Commas](#format-numbers-with-commas)
-- [Get Uploaded Image Details](#get-uploaded-image-details)
-- [Audio Player](#audio-player)
-- [Request Module](#request-module)
-- [Fuzzy Search in Array of Objects](#fuzzy-search-in-array-of-objects)
+- Storage Manager
+- Theme Manager
+- Query String Manager
+- Scroll Back
+- Delay
+- Add Plural Suffix
+- Get Ordinal Suffix
+- Select Random in Array
+- Copy to Clipboard
+- Sort Array of Objects
+- Arrange an Array
+- Remove Duplicates
+- Format Numbers with Commas
+- Get Uploaded Image Details
+- Audio Player
+- Request Module
+- Fuzzy Search in Array of Objects
+
+> Everything in less than <5KB.
 
 ## Helpers 🛠️
 
