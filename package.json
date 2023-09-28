@@ -1,0 +1,37 @@
+{
+  "name": "feutils",
+  "version": "1.0.0",
+  "description": "A collection of useful front-end web development utility functions.",
+  "main": "dist/index.js",
+  "repository": "git@github.com:neilveil/feutils.git",
+  "author": "neilveil",
+  "license": "MIT",
+  "scripts": {
+    "pretty": "prettier --write src",
+    "lint": "eslint . --ext ts,tsx",
+    "clean": "npm run pretty && npm run lint",
+    "dist": "rimraf dist && tsc"
+  },
+  "keywords": [
+    "javascript-helpers",
+    "javascript-toolkit",
+    "front-end",
+    "frontend-development",
+    "frontend-toolkit",
+    "frontend-utilities",
+    "utility-functions",
+    "utility-library",
+    "utils",
+    "web-development-toolkit",
+    "web-development-tools",
+    "web-development-utilities"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.45.0",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.4",
+    "typescript": "^5.2.2"
+  }
+}
