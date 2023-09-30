@@ -252,9 +252,7 @@ const data = [
 arrangeObjects([1, 4], data, 'id')
 ```
 
-### Remove Duplicates from an Array
-
-🔄
+### Remove Duplicates from an Array 🔄
 
 ```js
 const data = [
@@ -265,6 +263,18 @@ const data = [
 
 removeDuplicates(data)
 ```
+
+### Format Numbers with Commas 🔵
+
+```js
+roundNumber(2.343) // 2.34
+roundNumber(2.326) // 2.33
+
+// 1 decimal digit
+roundNumber(2.326, 1) // 2.3
+```
+
+> Decimal numbers should always be passed through this utility function to resolve floating point issues like `.1 + .2 => 0.30000000000000004`
 
 ### Format Numbers with Commas 💹
 

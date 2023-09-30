@@ -118,6 +118,8 @@ export const removeDuplicates = (array = [], key = 'id') => {
   return Object.values(keyObjectMap)
 }
 
+export const roundNumber = (number: number, decimal: number = 2) => parseFloat(number.toFixed(decimal))
+
 export const formatNumber = (value: number, indian?: boolean) =>
   indian ? parseFloat(value.toString()).toLocaleString('en-IN') : parseFloat(value.toString()).toLocaleString()
 
