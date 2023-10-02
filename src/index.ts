@@ -168,6 +168,63 @@ export const audioPlayer = (() => {
   }
 })()
 
+interface meta {
+  title?: string
+  description?: string
+  img?: string
+  keywords?: string[]
+  canonical?: string
+}
+
+const injectHeadEl = (tag: string, attributes: object = {}) => {
+  const el = document.createElement(tag)
+  Object.entries(attributes).forEach(([key, value]) => el.setAttribute(key, value))
+  document.head.append(el)
+}
+
+export const setMeta = ({
+  title = '',
+  description = '',
+  img = '',
+  keywords = [],
+  canonical = window.location.href
+}: meta) => {
+  // title
+  if (!document.querySelector('title')) injectHeadEl('title')
+  const titleEl = document.querySelector('title')
+  if (titleEl) titleEl.innerHTML = title
+
+  // og:title
+  if (!document.querySelector('meta[property="og:title"]')) injectHeadEl('meta', { property: 'og:title' })
+  const ogTitleEl = document.querySelector('meta[property="og:title"]')
+  if (ogTitleEl) ogTitleEl.setAttribute('content', title)
+
+  // description
+  if (!document.querySelector('meta[name="description"]')) injectHeadEl('meta', { name: 'description' })
+  const descriptionEl = document.querySelector('meta[name="description"]')
+  if (descriptionEl) descriptionEl.setAttribute('content', description)
+
+  // og:description
+  if (!document.querySelector('meta[property="og:description"]')) injectHeadEl('meta', { property: 'og:description' })
+  const ogDescriptionEl = document.querySelector('meta[property="og:description"]')
+  if (ogDescriptionEl) ogDescriptionEl.setAttribute('content', description)
+
+  // og:image
+  if (!document.querySelector('meta[property="og:image"]')) injectHeadEl('meta', { property: 'og:image' })
+  const ogImgEl = document.querySelector('meta[property="og:image"]')
+  if (ogImgEl) ogImgEl.setAttribute('content', img)
+
+  // canonical
+  if (!document.querySelector('link[rel="canonical"]')) injectHeadEl('link', { rel: 'canonical' })
+  const canonicalEl = document.querySelector('link[rel="canonical"]')
+  if (canonicalEl) canonicalEl.setAttribute('href', canonical)
+
+  // keywords
+  if (!document.querySelector('meta[name="keywords"]')) injectHeadEl('meta', { name: 'keywords' })
+  const keywordsEl = document.querySelector('meta[name="keywords"]')
+  if (keywordsEl) keywordsEl.setAttribute('content', keywords.join(','))
+}
+
 // Extended functionalities
 
 declare global {
