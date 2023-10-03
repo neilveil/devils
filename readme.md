@@ -317,13 +317,14 @@ audioPlayer('https://www.example.com/sound.mp3', 'stop')
 
 ```js
 await request({
-  method: 'get', // 'get' | 'post'
-  host: 'https://www.example.com',
-  path: '/api/profile',
+  host: 'https://www.example.com', // *required
+  path: '/api/profile', // *required
+  method: 'get', // get | post | put | patch | delete
   args: { a: 1 }, // Used as "params" if get requests & "data" if post request
   headers: { authorization: 'Basic jgjklewr423452vnjas==' },
   params: { b: 2 }, // Get request parameters
-  data: { c: 3 } // Post request data
+  data: { c: 3 }, // Post request data
+  clean: true // Default true, if true returns `response.data` & if false returns `response`
 })
 ```
 

@@ -234,7 +234,16 @@ declare global {
   }
 }
 
-export const request = ({ host = '', path = '', args = {}, method = 'get', headers = {}, params = {}, data = {} }) =>
+export const request = ({
+  method = 'get',
+  host = '',
+  path = '',
+  args = {},
+  headers = {},
+  params = {},
+  data = {},
+  clean = true
+}) =>
   window
     .axios({
       baseURL: host,
@@ -243,7 +252,7 @@ export const request = ({ host = '', path = '', args = {}, method = 'get', heade
       headers,
       ...(method === 'get' ? { params: Object.assign(args, params) } : { data: Object.assign(args, data) })
     })
-    .then((res: any) => res.data || {})
+    .then((res: any) => (clean ? (res.data !== undefined ? res.data : {}) : res.data))
     .catch((error: any) => error?.response?.data || {})
 
 export const fuse = (array: object[], keys: string[], search: string, options = {}) => {
