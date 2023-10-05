@@ -247,6 +247,7 @@ export const request = ({
   window
     .axios({
       baseURL: host,
+      url: path,
       path,
       method,
       headers,
