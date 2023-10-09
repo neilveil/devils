@@ -45,7 +45,7 @@ export const themeManager = {
 }
 
 export const qsm = {
-  read: (key: string, defaultValue?: any) => {
+  read: (key?: string, defaultValue?: any) => {
     try {
       const obj = JSON.parse(window.atob(window.location.search.slice('?'.length)))
 
