@@ -264,7 +264,7 @@ const data = [
 removeDuplicates(data)
 ```
 
-### Format Numbers with Commas 🔵
+### Round number 🔵
 
 ```js
 roundNumber(2.343) // 2.34
@@ -283,6 +283,18 @@ formatNumber(1000000) // 1,000,000
 
 // Indian style formatting
 formatNumber(1000000, true) // 10,00,000
+```
+
+### Empty check 📥
+
+Set default value if undefined `emptyCheck(value, defaultValue)`.
+
+```js
+let a = 1
+let b
+
+emptyCheck(a, 2) // 1
+emptyCheck(b, 0) // 0
 ```
 
 ### Get Uploaded Image Width, Height & Size 🖼️
