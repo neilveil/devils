@@ -123,7 +123,7 @@ export const roundNumber = (number: number, decimal: number = 2) => parseFloat(n
 export const formatNumber = (value: number, indian?: boolean) =>
   indian ? parseFloat(value.toString()).toLocaleString('en-IN') : parseFloat(value.toString()).toLocaleString()
 
-export const emptyCheck = <T>(value: T, defaultValue: T): T => (value === undefined ? defaultValue : value)
+export const emptyCheck = <T>(value: T | undefined, defaultValue: T): T => (value === undefined ? defaultValue : value)
 
 export const getImgDetails = (file: Blob) =>
   new Promise<{ width: number; height: number; size: number }>((resolve, reject) => {
