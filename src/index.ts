@@ -51,8 +51,10 @@ export const qsm = {
 
       let value: any
 
-      if (key && obj && key in obj) value = obj[key]
-      else value = obj
+      if (key) {
+        if (obj && key in obj) value = obj[key]
+        else value = undefined
+      } else value = obj
 
       if ([null, undefined].includes(value)) return defaultValue
       else return value

@@ -1,6 +1,6 @@
 {
   "name": "devils",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "A collection of useful front-end web development utility functions.",
   "main": "dist/index.js",
   "repository": "git@github.com:neilveil/devils.git",
