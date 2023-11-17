@@ -17,11 +17,14 @@ export const storageManager = {
 export const themeManager = {
   key: 'APP_THEME',
   attribute: 'data-theme',
-  get: () => {
+  getPreferredTheme: () => {
     let preferredTheme = 'light'
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) preferredTheme = 'dark'
 
-    let currentTheme = localStorage.getItem(themeManager.key) || preferredTheme
+    return preferredTheme
+  },
+  get: () => {
+    let currentTheme = localStorage.getItem(themeManager.key) || themeManager.getPreferredTheme()
 
     if (!['light', 'dark'].includes(currentTheme)) currentTheme = 'light'
 

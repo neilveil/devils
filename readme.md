@@ -66,7 +66,10 @@ The Theme Manager provides seamless control over both light and dark themes for 
 themeManager.init()
 
 // Get current theme
-themeManager.get()
+themeManager.get() // Last used theme or user preferred theme
+
+// Get user preferred theme
+themeManager.getPreferredTheme()
 
 // Set light theme
 themeManager.set('light')
