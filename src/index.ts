@@ -68,20 +68,6 @@ export const qsm = {
   gen: (content: object = {}, prefix: string = '') => prefix + '?' + window.btoa(JSON.stringify(content))
 }
 
-const scrollPositions: { [page: string]: number } = {}
-export const scrollBack = {
-  init: () => {
-    setTimeout(() => {
-      const page = window.location.pathname
-      if (page in scrollPositions) {
-        window.scrollTo(0, scrollPositions[page])
-        delete scrollPositions[page]
-      }
-    })
-  },
-  save: () => (scrollPositions[window.location.pathname] = window.scrollY)
-}
-
 export const delay = (n: number, ms: boolean = false) =>
   new Promise(resolve => setTimeout(resolve, n * (ms ? 1 : 1000)))
 
@@ -107,6 +93,8 @@ export const copyText = async (text: string) => {
   navigator.clipboard.writeText(el.value)
 }
 
+export const cloneObject = (obj = {}) => JSON.parse(JSON.stringify(obj))
+
 export const sortObjects = (objs = [], key = 'name') =>
   objs.sort((a: any, b: any) => {
     const _a = typeof a[key] === 'string' ? (a[key] || '').toLowerCase() : a[key] || 0
@@ -123,9 +111,10 @@ export const removeDuplicates = (array = [], key = 'id') => {
   return Object.values(keyObjectMap)
 }
 
-export const roundNumber = (number: number, decimal: number = 2) => parseFloat(number.toFixed(decimal))
+export const roundNumber = (number: number | string, decimal: number = 2) =>
+  parseFloat(number.toString()).toFixed(decimal)
 
-export const formatNumber = (value: number, indian?: boolean) =>
+export const formatNumber = (value: number | string, indian?: boolean) =>
   indian ? parseFloat(value.toString()).toLocaleString('en-IN') : parseFloat(value.toString()).toLocaleString()
 
 export function emptyCheck<T>(value: T | undefined, defaultValue: T): T {

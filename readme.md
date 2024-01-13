@@ -139,36 +139,6 @@ function MyPage() {
 }
 ```
 
-### Scroll Back 🔄
-
-Preserve the scroll position when revisiting the same page.
-
-```js
-// Save scroll position before navigating to a different page
-scrollBack.save()
-
-// Scroll back to the last position
-scrollBack.init()
-```
-
-React example
-
-```jsx
-function Component() {
-  useEffect(() => {
-    scrollBack.init()
-  }, [])
-
-  return (
-    <div>
-      <Link to='/profile' onClick={() => scrollBack.save()}>
-        Profile
-      </Link>
-    </div>
-  )
-}
-```
-
 ### Delay ⏳
 
 Allow your code to pause execution for a specified duration. This is valuable for displaying loaders, preventing action clicks, implementing custom animations, and more.
@@ -230,6 +200,19 @@ Copy any text value to clipboard.
 
 ```js
 copyText('This is some text!')
+```
+
+### Clone Object 👥
+
+Create a new copy of Javascript Object.
+
+```js
+const data = { a: 1 }
+
+const data2 = cloneObject(data)
+data2.a = 2
+
+console.log(data.a, data2.a) // 1, 2
 ```
 
 ### Sort Array of Objects 🔄
