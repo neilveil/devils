@@ -18,13 +18,15 @@ export const themeManager = {
   key: 'APP_THEME',
   attribute: 'data-theme',
   getPreferredTheme: () => {
-    let preferredTheme = 'light'
+    let preferredTheme: 'light' | 'dark' = 'light'
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) preferredTheme = 'dark'
 
     return preferredTheme
   },
-  get: () => {
-    let currentTheme = localStorage.getItem(themeManager.key) || themeManager.getPreferredTheme()
+  get: (defaultTheme?: 'light' | 'dark') => {
+    if (!defaultTheme) defaultTheme = themeManager.getPreferredTheme()
+
+    let currentTheme = localStorage.getItem(themeManager.key) || defaultTheme
 
     if (!['light', 'dark'].includes(currentTheme)) currentTheme = 'light'
 
