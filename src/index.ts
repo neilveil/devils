@@ -32,8 +32,10 @@ export const themeManager = {
 
     return currentTheme
   },
-  init: () => {
-    const currentTheme = themeManager.get()
+  init: (defaultTheme?: 'light' | 'dark') => {
+    if (!defaultTheme) defaultTheme = themeManager.getPreferredTheme()
+
+    const currentTheme = themeManager.get(defaultTheme)
     document.body.setAttribute('data-theme', currentTheme)
     localStorage.setItem(themeManager.key, currentTheme)
   },
