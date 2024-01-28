@@ -102,7 +102,7 @@ export const cloneObject = (obj = {}) => JSON.parse(JSON.stringify(obj))
 export const sortObjects = (objs = [], key = 'name') =>
   objs.sort((a: any, b: any) => {
     const _a = typeof a[key] === 'string' ? (a[key] || '').toLowerCase() : a[key] || 0
-    const _b = typeof b[key] === 'string' ? (b[key] || '').toLowerCase() : a[key] || 0
+    const _b = typeof b[key] === 'string' ? (b[key] || '').toLowerCase() : b[key] || 0
     return _a > _b ? 1 : _b > _a ? -1 : 0
   })
 

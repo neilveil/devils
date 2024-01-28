@@ -247,7 +247,7 @@ const data = [
   { id: 1, name: 'Jon Doe' }
 ]
 
-removeDuplicates(data)
+removeDuplicates(data, 'id')
 ```
 
 ### Round number 🔵
