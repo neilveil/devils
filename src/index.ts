@@ -23,10 +23,10 @@ export const themeManager = {
 
     return preferredTheme
   },
-  get: (defaultTheme?: 'light' | 'dark') => {
+  get: (defaultTheme?: 'light' | 'dark'): 'light' | 'dark' => {
     if (!defaultTheme) defaultTheme = themeManager.getPreferredTheme()
 
-    let currentTheme = localStorage.getItem(themeManager.key) || defaultTheme
+    let currentTheme: any = localStorage.getItem(themeManager.key) || defaultTheme
 
     if (!['light', 'dark'].includes(currentTheme)) currentTheme = 'light'
 
