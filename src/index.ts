@@ -69,7 +69,16 @@ export const qsm = {
       return defaultValue
     }
   },
-  gen: (content: object = {}, prefix: string = '') => prefix + '?' + window.btoa(JSON.stringify(content))
+  gen: (content: object = {}, prefix: string = '') => prefix + '?' + window.btoa(JSON.stringify(content)),
+  fwd: (content: object = {}, prefix: string = '') =>
+    prefix +
+    '?' +
+    window.btoa(
+      JSON.stringify({
+        ...content,
+        ...qsm.read()
+      })
+    )
 }
 
 export const delay = (n: number, ms: boolean = false) =>

@@ -122,7 +122,13 @@ console.log(qsm.read('b', 2)) // -> 2
 Append query string in url
 
 ```js
-qsm.gen({ a: 1 }, '/my-page') // -> /my-page?eyJhIjoxfQ==
+qsm.gen({ a: 1 }, '/my-page') // -> /my-page?eyJhIjoxfQ== | { a: 1 }
+```
+
+Append query string & forward
+
+```js
+qsm.fwd({ b: 2 }, '/my-page') // -> /my-page?eyJhIjoxLCJiIjoyfQ== | { a: 1, b: 2 }
 ```
 
 React example
