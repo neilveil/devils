@@ -84,12 +84,17 @@ export const qsm = {
 export const delay = (n: number, ms: boolean = false) =>
   new Promise(resolve => setTimeout(resolve, n * (ms ? 1 : 1000)))
 
-export const addPluralSuffix = (value = 0, entity = '') => {
-  if (value === 1) return entity
+export const addPluralSuffix = (value = 0, entity = '', onlyEntity = false) => {
+
+  let suffix = ''
+
+  if (value === 1) suffix = entity
   else {
-    if (entity.endsWith('y')) return entity.slice(0, -1) + 'ies'
-    else return entity + 's'
+    if (entity.endsWith('y')) suffix = entity.slice(0, -1) + 'ies'
+    else suffix = entity + 's'
   }
+
+  return onlyEntity?suffix:`${value} ${suffix}`
 }
 
 export const getOrdinalSuffix = (n: number) => ['st', 'nd', 'rd'][((((n + 90) % 100) - 10) % 10) - 1] || 'th'
@@ -125,7 +130,7 @@ export const removeDuplicates = (array = [], key = 'id') => {
 }
 
 export const roundNumber = (number: number | string, decimal: number = 2) =>
-  parseFloat(number.toString()).toFixed(decimal)
+parseFloat(parseFloat(number.toString()).toFixed(decimal))
 
 export const formatNumber = (value: number | string, indian?: boolean) =>
   indian ? parseFloat(value.toString()).toLocaleString('en-IN') : parseFloat(value.toString()).toLocaleString()
